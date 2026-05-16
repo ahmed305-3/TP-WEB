@@ -27,7 +27,6 @@
     <p id="message"></p>
 
 </div>
-
 <script>
 
 const email = document.getElementById('email');
@@ -42,25 +41,22 @@ button.addEventListener('click', () => {
 
     const users = JSON.parse(localStorage.getItem("users") || "[]");
 
-    const user = users.find(user => 
+    const user = users.find(user =>
         user.email === mail && user.password === pass
     );
 
     if(user){
 
-        document.getElementById("message").innerHTML =
-        "Connexion réussie ✅";
+        alert("Connexion réussie");
 
     } else {
 
-        document.getElementById("message").innerHTML =
-        "Email ou mot de passe incorrect ❌";
+        alert("Email ou mot de passe incorrect");
 
     }
 
 });
 
 </script>
-
 </body>
 </html>

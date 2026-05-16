@@ -24,8 +24,8 @@ button.addEventListener('click', () => {
 
     localStorage.setItem("users", JSON.stringify(users));
 
-    alert(`Inscription réussie ! nom : ${name} email : ${mail} password : ${pass}`);
+    alert("Inscription réussie");
 
-    nom.value = email.value = password.value = "";
+    window.location.href = "login.html";
 
 });
