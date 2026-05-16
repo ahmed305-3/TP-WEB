@@ -3,46 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>Login</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="form">
+<div class="form">
 
-        <h1>Sign Up</h1>
+    <h1>Login</h1>
 
-        <input 
-            id="name"
-            type="text"
-            placeholder="Entrer votre nom"
-        >
+    <input id="email" placeholder="Entrer votre email" type="email">
 
-        <input 
-            id="email"
-            type="email"
-            placeholder="Entrer votre email"
-        >
+    <input id="password" placeholder="Entrer votre mot de passe" type="password">
 
-        <input 
-            id="password"
-            type="password"
-            placeholder="Entrer votre mot de passe"
-        >
+    <button id="btn">Se connecter</button>
 
-        <button id="btn">
-            S'inscrire
-        </button>
+    <a href="index.html">
+        Vous n'avez pas de compte ? Inscrivez-vous
+    </a>
 
-        <a href="login.html">
-            Vous avez déjà un compte ? Connectez-vous
-        </a>
+    <p id="message"></p>
 
-    </div>
+</div>
 
-    <script src="./script.js"></script>
+<script>
+
+const email = document.getElementById('email');
+const password = document.getElementById('password');
+
+const button = document.getElementById('btn');
+
+button.addEventListener('click', () => {
+
+    const mail = email.value;
+    const pass = password.value;
+
+    const users = JSON.parse(localStorage.getItem("users") || "[]");
+
+    const user = users.find(user => 
+        user.email === mail && user.password === pass
+    );
+
+    if(user){
+
+        document.getElementById("message").innerHTML =
+        "Connexion réussie ✅";
+
+    } else {
+
+        document.getElementById("message").innerHTML =
+        "Email ou mot de passe incorrect ❌";
+
+    }
+
+});
+
+</script>
 
 </body>
 </html>
